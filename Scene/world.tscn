@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3frb0cxt3sy6"]
+
+[ext_resource type="PackedScene" uid="uid://ch6vhydv4qlk0" path="res://Scene/Player.tscn" id="1_81r6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkeqr"]
+size = Vector2(1537.5, 268.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0prjb"]
+size = Vector2(200.375, 648.5)
+
+[node name="World" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 392.0
+offset_top = 372.0
+offset_right = 742.0
+offset_bottom = 484.0
+text = "This is The GAME World"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("1_81r6b")]
+position = Vector2(550, 392)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(554, 693.75)
+shape = SubResource("RectangleShape2D_mkeqr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-57, 266)
+shape = SubResource("RectangleShape2D_0prjb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1201, 270)
+shape = SubResource("RectangleShape2D_0prjb")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -211.0
+offset_top = 562.0
+offset_right = 1324.0
+offset_bottom = 829.0
