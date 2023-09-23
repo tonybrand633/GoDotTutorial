@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://c66f18rl4iqi8"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Frog.gd" id="1_4i5e7"]
+[ext_resource type="Texture2D" uid="uid://kjcd833gie6t" path="res://Package/Sunny-land-assets-files/PNG/spritesheets/frog-idle.png" id="1_amhd3"]
+[ext_resource type="Texture2D" uid="uid://b7a0mgobuuo7i" path="res://Package/Sunny-land-assets-files/PNG/spritesheets/frog-jump.png" id="1_tnxdb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5y3y"]
+radius = 12.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojs5u"]
+atlas = ExtResource("1_amhd3")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1w22"]
+atlas = ExtResource("1_amhd3")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kppts"]
+atlas = ExtResource("1_amhd3")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhdu6"]
+atlas = ExtResource("1_amhd3")
+region = Rect2(105, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc4q4"]
+atlas = ExtResource("1_tnxdb")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wkpj"]
+atlas = ExtResource("1_tnxdb")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le0n0"]
+atlas = ExtResource("1_tnxdb")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhyyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojs5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1w22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kppts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhdu6")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc4q4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wkpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le0n0")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_4i5e7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_a5y3y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fhyyl")
+animation = &"Idle"
+frame = 2
+frame_progress = 0.188964
