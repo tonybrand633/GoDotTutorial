@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c66f18rl4iqi8"]
+[gd_scene load_steps=14 format=3 uid="uid://c66f18rl4iqi8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Frog.gd" id="1_4i5e7"]
 [ext_resource type="Texture2D" uid="uid://kjcd833gie6t" path="res://Package/Sunny-land-assets-files/PNG/spritesheets/frog-idle.png" id="1_amhd3"]
@@ -70,6 +70,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbnct"]
+size = Vector2(22.9948, 177.813)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4i5e7")
 
@@ -82,3 +85,14 @@ sprite_frames = SubResource("SpriteFrames_fhyyl")
 animation = &"Idle"
 frame = 2
 frame_progress = 0.188964
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = -0.00277842
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.19209e-07, 0)
+rotation = -1.56547
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fbnct")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_player_2d_body_entered"]
